@@ -1,0 +1,212 @@
+[
+  {
+    "date": "20240426",
+    "productId": 1,
+    "currency": "USD",
+    "price": 10.99
+  },
+  {
+    "date": "20240426",
+    "productId": 2,
+    "currency": "EUR",
+    "price": 20.50
+  },
+  {
+    "date": "20240426",
+    "productId": 3,
+    "currency": "GBP",
+    "price": 5.75
+  },
+  {
+    "date": "20240426",
+    "productId": 4,
+    "currency": "JPY",
+    "price": 1500.25
+  },
+  {
+    "date": "20240426",
+    "productId": 5,
+    "currency": "CAD",
+    "price": 8.99
+  },
+  {
+    "date": "20240426",
+    "productId": 6,
+    "currency": "AUD",
+    "price": 12.50
+  },
+  {
+    "date": "20240426",
+    "productId": 7,
+    "currency": "CHF",
+    "price": 15.20
+  },
+  {
+    "date": "20240426",
+    "productId": 8,
+    "currency": "CNY",
+    "price": 75.80
+  },
+  {
+    "date": "20240426",
+    "productId": 9,
+    "currency": "SEK",
+    "price": 95.50
+  },
+  {
+    "date": "20240426",
+    "productId": 10,
+    "currency": "NZD",
+    "price": 11.25
+  },
+  {
+    "date": "20240426",
+    "productId": 11,
+    "currency": "RUB",
+    "price": 800.50
+  },
+  {
+    "date": "20240426",
+    "productId": 12,
+    "currency": "BRL",
+    "price": 55.75
+  },
+  {
+    "date": "20240426",
+    "productId": 13,
+    "currency": "INR",
+    "price": 900.20
+  },
+  {
+    "date": "20240426",
+    "productId": 14,
+    "currency": "KRW",
+    "price": 12000.80
+  },
+  {
+    "date": "20240426",
+    "productId": 15,
+    "currency": "MXN",
+    "price": 200.50
+  },
+  {
+    "date": "20240426",
+    "productId": 16,
+    "currency": "SGD",
+    "price": 18.75
+  },
+  {
+    "date": "20240426",
+    "productId": 17,
+    "currency": "HKD",
+    "price": 85.20
+  },
+  {
+    "date": "20240426",
+    "productId": 18,
+    "currency": "TRY",
+    "price": 150.90
+  },
+  {
+    "date": "20240426",
+    "productId": 19,
+    "currency": "ZAR",
+    "price": 250.30
+  },
+  {
+    "date": "20240426",
+    "productId": 20,
+    "currency": "DKK",
+    "price": 65.80
+  },
+  {
+    "date": "20240426",
+    "productId": 21,
+    "currency": "NOK",
+    "price": 80.10
+  },
+  {
+    "date": "20240426",
+    "productId": 22,
+    "currency": "PLN",
+    "price": 45.60
+  },
+  {
+    "date": "20240426",
+    "productId": 23,
+    "currency": "THB",
+    "price": 350.20
+  },
+  {
+    "date": "20240426",
+    "productId": 24,
+    "currency": "IDR",
+    "price": 15000.70
+  },
+  {
+    "date": "20240426",
+    "productId": 25,
+    "currency": "MYR",
+    "price": 50.80
+  },
+  {
+    "date": "20240426",
+    "productId": 26,
+    "currency": "PHP",
+    "price": 600.90
+  },
+  {
+    "date": "20240426",
+    "productId": 27,
+    "currency": "AED",
+    "price": 40.50
+  },
+  {
+    "date": "20240426",
+    "productId": 28,
+    "currency": "KWD",
+    "price": 30.20
+  },
+  {
+    "date": "20240426",
+    "productId": 29,
+    "currency": "SAR",
+    "price": 45.70
+  },
+  {
+    "date": "20240426",
+    "productId": 30,
+    "currency": "QAR",
+    "price": 55.90
+  },
+  {
+    "date": "20240426",
+    "productId": 31,
+    "currency": "OMR",
+    "price": 60.30
+  },
+  {
+    "date": "04262024",
+    "productId": 32,
+    "currency": "JOD",
+    "price": 70.60
+  },
+  {
+    "date": "20240426",
+    "productId": 33,
+    "currency": "LBP",
+    "price": 8000.10
+  },
+  {
+    "date": "20240426",
+    "productId": 34,
+    "currency": "ILS",
+    "price": 90.40
+  },
+  {
+    "date": "20240426",
+    "productId": 35,
+    "currency": "UAN",
+    "price": 900.40
+  }
+]
