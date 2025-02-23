@@ -14,7 +14,7 @@ class JsonFileParser {
     fun <T : Any> parseJsonFileWithValidation(
         filePath: String,
         modelClass: KClass<T>,
-        verifierFactory: ((Int) -> BeanVerifier<in T>)? = null
+        verifierFactory: ((Int) -> BeanVerifier<in T>)? = null,
     ): List<T> {
         val file = File(filePath)
 

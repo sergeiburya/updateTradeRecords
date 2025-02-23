@@ -27,13 +27,13 @@ import com.opencsv.bean.CsvBindByName
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JacksonXmlRootElement(localName = "product")
-data class Product (
+data class Product(
     @CsvBindByName(column = "productId")
     @JacksonXmlProperty(localName = "productId")
     val productId: Long,
     @CsvBindByName(column = "productName")
     @JacksonXmlProperty(localName = "productName")
-    var productName: String? = "Missing product name"
+    var productName: String? = "Missing product name",
 ) {
-    constructor() :this(0,null)
+    constructor() : this(0, null)
 }

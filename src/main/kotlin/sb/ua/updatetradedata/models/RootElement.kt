@@ -24,5 +24,5 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement
 data class RootElement<T>(
     @JacksonXmlElementWrapper(useWrapping = false)
     @JacksonXmlProperty(localName = "item")
-    val items: List<T>
+    val items: List<T>,
 )

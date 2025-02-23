@@ -40,20 +40,24 @@ class ProductController(
      * @param stringData String of data in JSON, XML, or text format. Used if no file is specified.
      * @return Response with a message that the products were successfully loaded.
      */
-    @PostMapping("/load",
+    @PostMapping(
+        "/load",
         consumes = [
             MediaType.APPLICATION_JSON_VALUE,
             MediaType.APPLICATION_XML_VALUE,
-            MediaType.TEXT_PLAIN_VALUE])
+            MediaType.TEXT_PLAIN_VALUE]
+    )
     @Operation(
         summary = "Load products from file",
         description = "Loads products from a CSV, XML, or JSON file."
     )
     @ApiResponse(responseCode = "200", description = "Products loaded successfully.")
     suspend fun saveProducts(
-        @RequestParam(required = false,
-            defaultValue = DEFAULT_PRODUCTS_FILE_PATH) filePath: String,
-        @RequestBody(required = false) stringData: String
+        @RequestParam(
+            required = false,
+            defaultValue = DEFAULT_PRODUCTS_FILE_PATH
+        ) filePath: String,
+        @RequestBody(required = false) stringData: String,
     ): ResponseEntity<String> {
         productService.saveProductFromFile(filePath, stringData = "")
 

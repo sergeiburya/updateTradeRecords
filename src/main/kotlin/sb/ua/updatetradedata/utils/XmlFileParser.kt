@@ -21,7 +21,7 @@ import kotlin.reflect.KClass
  * @see BeanVerifier
  */
 @Component
-class XmlFileParser{
+class XmlFileParser {
     private val xmlMapper = XmlMapper().registerModule(KotlinModule())
 
     /**

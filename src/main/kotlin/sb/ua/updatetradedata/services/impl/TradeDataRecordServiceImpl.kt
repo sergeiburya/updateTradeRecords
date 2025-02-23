@@ -23,7 +23,7 @@ class TradeDataRecordServiceImpl(
     private val productService: ProductServiceImpl,
     private val csvFileParser: CsvFileParser,
     private val xmlFileParser: XmlFileParser,
-    private val jsonFileParser: JsonFileParser
+    private val jsonFileParser: JsonFileParser,
 ) {
     /**
      * Updates the trade data obtained from a file or data string.
@@ -33,25 +33,25 @@ class TradeDataRecordServiceImpl(
      * @throws IllegalArgumentException If the file format is not supported or the data is missing.
      */
     fun updateTradeDataRecords(filePath: String, stringData: String): List<UpdateTradeDataRecord> {
-       val tradeDataRecords = when {
-           filePath.endsWith(".csv") -> getTradeDataFromCsvFile(filePath)
-           filePath.endsWith(".xml") -> getTradeDataFromXmlFile(filePath)
-           filePath.endsWith(".json") -> getTradeDataFromJsonFile(filePath)
-           stringData.isNotEmpty() || stringData.isNotBlank() -> getTradeDataFromString(stringData)
-           else -> throw IllegalArgumentException("Unsupported file format or missing data")
-       }
+        val tradeDataRecords = when {
+            filePath.endsWith(".csv") -> getTradeDataFromCsvFile(filePath)
+            filePath.endsWith(".xml") -> getTradeDataFromXmlFile(filePath)
+            filePath.endsWith(".json") -> getTradeDataFromJsonFile(filePath)
+            stringData.isNotEmpty() || stringData.isNotBlank() -> getTradeDataFromString(stringData)
+            else -> throw IllegalArgumentException("Unsupported file format or missing data")
+        }
 
-       val updatedTradeDataRecords = tradeDataRecords.map { tradeDataRecord ->
-           val productName =
-               productService.getProductNameByProductId(tradeDataRecord.productId)
-           UpdateTradeDataRecord(
-               tradeDataRecord.date,
-               productName ?: "Missing Product Name",
-               tradeDataRecord.currency,
-               tradeDataRecord.price
-           )
-       }
-       return updatedTradeDataRecords
+        val updatedTradeDataRecords = tradeDataRecords.map { tradeDataRecord ->
+            val productName =
+                productService.getProductNameByProductId(tradeDataRecord.productId)
+            UpdateTradeDataRecord(
+                tradeDataRecord.date,
+                productName ?: "Missing Product Name",
+                tradeDataRecord.currency,
+                tradeDataRecord.price
+            )
+        }
+        return updatedTradeDataRecords
     }
 
     /**
@@ -123,6 +123,7 @@ class TradeDataRecordServiceImpl(
         return when {
             stringData.trimStart().startsWith("{") ||
                     stringData.trimStart().startsWith("[") -> getTradeDataFromJsonFile(stringData)
+
             stringData.trimStart().startsWith("<") -> getTradeDataFromXmlFile(stringData)
             else -> getTradeDataFromCsvFile(stringData)
         }

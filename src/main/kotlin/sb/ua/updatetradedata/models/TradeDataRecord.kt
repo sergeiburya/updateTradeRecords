@@ -1,7 +1,6 @@
 package sb.ua.updatetradedata.models
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
-import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement
 import com.opencsv.bean.CsvBindByName
@@ -16,7 +15,7 @@ import com.opencsv.bean.CsvBindByName
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JacksonXmlRootElement(localName = "trade")
-data class TradeDataRecord (
+data class TradeDataRecord(
     @CsvBindByName(column = "date")
     @JacksonXmlProperty(localName = "date")
     val date: String,
@@ -30,5 +29,5 @@ data class TradeDataRecord (
     @JacksonXmlProperty(localName = "price")
     val price: Double,
 ) {
-    constructor() :this("",0,"",0.0)
+    constructor() : this("", 0, "", 0.0)
 }

@@ -41,7 +41,7 @@ class ProductRepository(
     fun getAllProducts(): List<Product?> {
         val scanOptions = ScanOptions.scanOptions().match("*").count(100).build()
         val cursor = redisTemplate.connectionFactory?.connection?.scan(scanOptions)
-         val keys = mutableListOf<Long>()
+        val keys = mutableListOf<Long>()
         cursor?.use { cur ->
             while (cur.hasNext()) {
                 val key = cur.next()
@@ -49,7 +49,7 @@ class ProductRepository(
             }
         }
 
-        return  keys.map { key ->
+        return keys.map { key ->
             redisTemplate.opsForValue().get(key)?.let { productName ->
                 Product(productId = key, productName = productName)
             }

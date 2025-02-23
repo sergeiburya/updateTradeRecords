@@ -24,7 +24,7 @@ class ProductServiceImpl(
     private val productRepository: ProductRepository,
     private val csvFileParser: CsvFileParser,
     private val xmlFileParser: XmlFileParser,
-    private val jsonFileParser: JsonFileParser
+    private val jsonFileParser: JsonFileParser,
 ) {
     /**
      * Stores products from a file or string of data in Redis.
@@ -43,7 +43,7 @@ class ProductServiceImpl(
 
         for (product in products) {
             val productId = product.productId
-            val productName = product.productName ?:"Missing product name"
+            val productName = product.productName ?: "Missing product name"
             productRepository.saveProduct(productId, productName)
         }
     }
@@ -72,7 +72,7 @@ class ProductServiceImpl(
      * @param filePath The path to the CSV file.
      * @return List of products.
      */
-    fun getProductFromCsvFile(filePath: String) : List<Product> {
+    fun getProductFromCsvFile(filePath: String): List<Product> {
         val products = csvFileParser.parseCsvFileWithValidation(
             filePath,
             Product::class,
@@ -92,7 +92,7 @@ class ProductServiceImpl(
      * @param filePath Path to the XML file.
      * @return List of products.
      */
-    fun getProductFromXmlFile(filePath: String) : List<Product> {
+    fun getProductFromXmlFile(filePath: String): List<Product> {
         val products = xmlFileParser.parseXmlFileWithValidation(
             filePath,
             Product::class,
@@ -112,7 +112,7 @@ class ProductServiceImpl(
      * @param filePath Path to the JSON file.
      * @return List of products.
      */
-    fun getProductFromJsonFile(filePath: String) : List<Product> {
+    fun getProductFromJsonFile(filePath: String): List<Product> {
         val products = jsonFileParser.parseJsonFileWithValidation(
             filePath,
             Product::class,
@@ -136,6 +136,7 @@ class ProductServiceImpl(
         return when {
             stringData.trimStart().startsWith("{") ||
                     stringData.trimStart().startsWith("[") -> getProductFromJsonFile(stringData)
+
             stringData.trimStart().startsWith("<") -> getProductFromXmlFile(stringData)
             else -> getProductFromCsvFile(stringData)
         }

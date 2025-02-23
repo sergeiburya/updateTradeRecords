@@ -28,7 +28,7 @@ class DataValidator<T : Any>(
     private val dateFieldName: String? = null,
     private val nameFieldName: String? = null,
     private val idFieldName: String? = null,
-    private val rowNumber: Int? = null
+    private val rowNumber: Int? = null,
 ) : BeanVerifier<T> {
     private val logger = LoggerFactory.getLogger(DataValidator::class.java)
     private val dateFormatter = DateTimeFormatter.ofPattern("yyyyMMdd")
@@ -60,9 +60,11 @@ class DataValidator<T : Any>(
      * @param identifier The identifier to log (for example, a line number or record ID).
      * @return `true` if the date is valid, `false` otherwise.
      */
-    private fun validateDate(bean: T,
-                             fieldName: String,
-                             identifier: String): Boolean {
+    private fun validateDate(
+        bean: T,
+        fieldName: String,
+        identifier: String,
+    ): Boolean {
 
         val dateField = bean::class.memberProperties.find { it.name == fieldName }
             ?: throw IllegalArgumentException("Field '$fieldName' not found in ${bean::class.simpleName}")

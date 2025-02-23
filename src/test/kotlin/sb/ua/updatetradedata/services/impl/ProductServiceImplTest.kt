@@ -7,10 +7,6 @@ import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.api.extension.ExtendWith
 import org.mockito.InjectMocks
 import org.mockito.Mock
-import org.mockito.Mockito.any
-import org.mockito.Mockito.eq
-import org.mockito.Mockito.times
-import org.mockito.Mockito.verify
 import org.mockito.Mockito.`when`
 import org.mockito.junit.jupiter.MockitoExtension
 import sb.ua.updatetradedata.models.Product
@@ -20,7 +16,7 @@ import sb.ua.updatetradedata.utils.JsonFileParser
 import sb.ua.updatetradedata.utils.XmlFileParser
 
 @ExtendWith(MockitoExtension::class)
-class ProductServiceImplTest{
+class ProductServiceImplTest {
     @Mock
     private lateinit var productRepository: ProductRepository
 

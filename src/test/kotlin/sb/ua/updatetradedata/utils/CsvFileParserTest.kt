@@ -2,11 +2,8 @@ package sb.ua.updatetradedata.utils
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.assertThrows
 import sb.ua.updatetradedata.models.Product
-import sb.ua.updatetradedata.models.TradeDataRecord
 import java.io.StringReader
-import java.time.format.DateTimeParseException
 
 class CsvFileParserTest {
     private val csvFileParser = CsvFileParser()

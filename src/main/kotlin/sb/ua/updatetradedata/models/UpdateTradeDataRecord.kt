@@ -12,5 +12,5 @@ data class UpdateTradeDataRecord(
     val date: String,
     var productName: String,
     val currency: String,
-    val price: Double
+    val price: Double,
 )

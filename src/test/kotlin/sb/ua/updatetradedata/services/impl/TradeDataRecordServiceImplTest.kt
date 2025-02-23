@@ -1,23 +1,20 @@
 package sb.ua.updatetradedata.services.impl
 
-import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.api.extension.ExtendWith
 import org.mockito.InjectMocks
 import org.mockito.Mock
-import org.mockito.Mockito.*
 import org.mockito.junit.jupiter.MockitoExtension
 import sb.ua.updatetradedata.models.TradeDataRecord
 import sb.ua.updatetradedata.models.UpdateTradeDataRecord
 import sb.ua.updatetradedata.utils.CsvFileParser
-import sb.ua.updatetradedata.utils.DataValidator
 import sb.ua.updatetradedata.utils.JsonFileParser
 import sb.ua.updatetradedata.utils.XmlFileParser
 
 @ExtendWith(MockitoExtension::class)
-class TradeDataRecordServiceImplTest{
+class TradeDataRecordServiceImplTest {
     @Mock
     private lateinit var productService: ProductServiceImpl
 
