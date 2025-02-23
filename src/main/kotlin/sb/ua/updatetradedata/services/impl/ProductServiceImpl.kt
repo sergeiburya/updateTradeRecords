@@ -43,7 +43,7 @@ class ProductServiceImpl(
 
         for (product in products) {
             val productId = product.productId
-            val productName = product.productName
+            val productName = product.productName ?:"Missing product name"
             productRepository.saveProduct(productId, productName)
         }
     }

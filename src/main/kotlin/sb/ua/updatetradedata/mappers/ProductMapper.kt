@@ -9,7 +9,7 @@ class ProductMapper : ResponseDtoMapper<Product, ProductResponseDto> {
     override fun mapToDto(model: Product): ProductResponseDto {
         return ProductResponseDto(
             model.productId,
-            model.productName
+            model.productName ?: "Missing Product Name"
         )
     }
 }

@@ -17,7 +17,7 @@ import sb.ua.updatetradedata.services.impl.TradeDataRecordServiceImpl
 /**
  * Default path to the trading data file.
  */
-const val DEFAULT_TRADE_DATA_FILES_PATH = "src/main/resources/tradeData.csv"
+const val DEFAULT_TRADE_DATA_FILES_PATH = "src/main/resources/tradeData.xml"
 
 /**
  * Controller for working with trade data.

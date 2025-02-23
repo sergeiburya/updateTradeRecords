@@ -47,7 +47,7 @@ class DataValidator<T : Any>(
         }
 
         nameFieldName?.let { fieldName ->
-            validateProductName(bean, fieldName, identifier)
+            validateName(bean, fieldName, identifier)
         }
 
         return isValid
@@ -88,7 +88,7 @@ class DataValidator<T : Any>(
      * @param fieldName The name of the field that contains the product name.
      * @param identifier The identifier to log (for example, a line number or record ID).
      */
-    private fun validateProductName(bean: T, fieldName: String, identifier: String) {
+    private fun validateName(bean: T, fieldName: String, identifier: String) {
         val nameField = bean::class.memberProperties.find { it.name == fieldName }
             ?: throw IllegalArgumentException("Field '$fieldName' not found in ${bean::class.simpleName}")
 

@@ -1,5 +1,6 @@
 package sb.ua.updatetradedata.models
 
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty
 import com.opencsv.bean.CsvBindByName
 
 /**
@@ -10,9 +11,11 @@ import com.opencsv.bean.CsvBindByName
  */
 data class Product (
     @CsvBindByName(column = "productId")
+    @JacksonXmlProperty(localName = "productId")
     val productId: Long,
     @CsvBindByName(column = "productName")
-    var productName: String
+    @JacksonXmlProperty(localName = "productName")
+    var productName: String? = "Missing product name"
 ) {
-    constructor() :this(0,"")
+    constructor() :this(0,null)
 }
