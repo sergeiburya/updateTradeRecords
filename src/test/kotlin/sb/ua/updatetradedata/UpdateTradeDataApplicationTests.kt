@@ -9,5 +9,4 @@ class UpdateTradeDataApplicationTests {
     @Test
     fun contextLoads() {
     }
-
 }

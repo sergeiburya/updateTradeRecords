@@ -1,6 +1,5 @@
 package sb.ua.updatetradedata.utils
 
-import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.KotlinModule
 import com.opencsv.bean.BeanVerifier

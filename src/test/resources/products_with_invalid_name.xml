@@ -1,0 +1,10 @@
+<root>
+    <item>
+        <productId>1</productId>
+        <productName>Product 1</productName>
+    </item>
+    <item>
+        <productId>2</productId>
+        <productName></productName> 
+    </item>                
+</root>

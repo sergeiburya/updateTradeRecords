@@ -1,10 +1,16 @@
 package sb.ua.updatetradedata.utils
 
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.extension.ExtendWith
+import org.springframework.boot.test.system.CapturedOutput
+import org.springframework.boot.test.system.OutputCaptureExtension
 import sb.ua.updatetradedata.models.Product
+import sb.ua.updatetradedata.models.TradeDataRecord
 import java.io.StringReader
 
+@ExtendWith(OutputCaptureExtension::class)
 class CsvFileParserTest {
     private val csvFileParser = CsvFileParser()
 
@@ -50,27 +56,26 @@ class CsvFileParserTest {
         assertEquals("Missing product name", products[0].productName)
     }
 
-//    @Test
-//    fun testParseCsvWithInvalidDate() {
-//        val csvContent = """
-//        date,productId,currency,price
-//        13012023,1,USD,1.23
-//    """.trimIndent()
-//
-//        assertThrows<DateTimeParseException> {
-//            csvFileParser.parseCsvFileWithValidation(
-//                StringReader(csvContent),
-//                TradeDataRecord::class,
-//                verifierFactory = { rowNumber ->
-//                    DataValidator<TradeDataRecord>(
-//                        dateFieldName = "date",
-//                        idFieldName = "productId",
-//                        rowNumber = rowNumber
-//                    )
-//                }
-//            )
-//        }
-//    }
+    @Test
+    fun testParseCsvWithInvalidDate(output: CapturedOutput) {
+        val csvContent = """
+        date,productId,currency,price
+        13012023,1,USD,1.23
+    """.trimIndent()
+
+        csvFileParser.parseCsvFileWithValidation(
+            StringReader(csvContent),
+            TradeDataRecord::class,
+            verifierFactory = { rowNumber ->
+                DataValidator<TradeDataRecord>(
+                    dateFieldName = "date",
+                    idFieldName = "productId",
+                    rowNumber = rowNumber
+                )
+            }
+        )
+        assertTrue(output.all.contains("Invalid date format: 13012023"))
+    }
 
     @Test
     fun testParseCsvWithEmptyLine() {
