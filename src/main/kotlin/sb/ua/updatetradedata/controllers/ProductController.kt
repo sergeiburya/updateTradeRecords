@@ -19,7 +19,7 @@ import sb.ua.updatetradedata.services.impl.ProductServiceImpl
 /**
  * Default path to the product data file.
  */
-const val DEFAULT_PRODUCTS_FILE_PATH = "src/main/resources/productData.xml"
+const val DEFAULT_PRODUCTS_FILE_PATH = "/app/data/productData.csv"
 
 /**
  * Controller for working with products.
