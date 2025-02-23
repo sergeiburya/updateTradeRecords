@@ -1,142 +1,16 @@
-[
-  {
-    "productId": 1,
-    "productName": "Product 1"
-  },
-  {
-    "productId": 2,
-    "productName": "Product 2"
-  },
-  {
-    "productId": 3,
-    "productName": "Product 3"
-  },
-  {
-    "productId": 4,
-    "productName": "Product 4"
-  },
-  {
-    "productId": 5,
-    "productName": "Product 5"
-  },
-  {
-    "productId": 6,
-    "productName": "Product 6"
-  },
-  {
-    "productId": 7,
-    "productName": "Product 7"
-  },
-  {
-    "productId": 8,
-    "productName": "Product 8"
-  },
-  {
-    "productId": 9,
-    "productName": "Product 9"
-  },
-  {
-    "productId": 10,
-    "productName": "Product 10"
-  },
-  {
-    "productId": 11,
-    "productName": "Product 11"
-  },
-  {
-    "productId": 12,
-    "productName": "Product 12"
-  },
-  {
-    "productId": 13,
-    "productName": "Product 13"
-  },
-  {
-    "productId": 14,
-    "productName": "Product 14"
-  },
-  {
-    "productId": 15,
-    "productName": "Product 15"
-  },
-  {
-    "productId": 16,
-    "productName": "Product 16"
-  },
-  {
-    "productId": 17,
-    "productName": "Product 17"
-  },
-  {
-    "productId": 18,
-    "productName": "Product 18"
-  },
-  {
-    "productId": 19,
-    "productName": ""
-  },
-  {
-    "productId": 20,
-    "productName": "Product 20"
-  },
-  {
-    "productId": 21,
-    "productName": "Product 21"
-  },
-  {
-    "productId": 22,
-    "productName": "Product 22"
-  },
-  {
-    "productId": 23,
-    "productName": "Product 23"
-  },
-  {
-    "productId": 24,
-    "productName": "Product 24"
-  },
-  {
-    "productId": 25,
-    "productName": "Product 25"
-  },
-  {
-    "productId": 26,
-    "productName": "Product 26"
-  },
-  {
-    "productId": 27,
-    "productName": "Product 27"
-  },
-  {
-    "productId": 28,
-    "productName": "Product 28"
-  },
-  {
-    "productId": 29,
-    "productName": "Product 29"
-  },
-  {
-    "productId": 30,
-    "productName": "Product 30"
-  },
-  {
-    "productId": 31,
-    "productName": "Product 31"
-  },
-  {
-    "productId": 32,
-    "productName": "Product 32"
-  },
-  {
-    "productId": 33,
-    "productName": "Product 33"
-  },
-  {
-    "productId": 34,
-    "productName": "Product 34"
-  },
-  {
-    "productId": 35,
-    "productName": ""
-  }
-]
+{
+  "items": [
+    {
+      "productId": 1,
+      "productName": "Product 1"
+    },
+    {
+      "productId": 2,
+      "productName": "Product 2"
+    },
+    {
+      "productId": 3,
+      "productName": ""
+    }
+  ]
+}

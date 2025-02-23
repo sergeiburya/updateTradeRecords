@@ -7,7 +7,7 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement
 /**
  * Class representing a root element in an XML structure.
  * This class is used to model a root element that contains a list of items of a generic type `T`.
- * It supports serialization and deserialization from XML format using Jackson XML annotations.
+ * It supports serialization and deserialization from JSON, XML format using Jackson XML annotations.
  * @author SerhiiBuria
  * @property items A list of items of type `T`. Each item is represented as an `<item>` element in the XML.
  *       The `@JacksonXmlElementWrapper(useWrapping = false)` annotation ensures that the list items
