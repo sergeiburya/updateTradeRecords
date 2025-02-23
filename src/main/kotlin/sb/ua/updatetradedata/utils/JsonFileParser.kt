@@ -1,7 +1,7 @@
 package sb.ua.updatetradedata.utils
 
+import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.module.kotlin.KotlinFeature
 import com.fasterxml.jackson.module.kotlin.KotlinModule
 import com.opencsv.bean.BeanVerifier
 import org.springframework.stereotype.Component
@@ -23,16 +23,7 @@ import kotlin.reflect.KClass
  */
 @Component
 class JsonFileParser {
-    private val jsonMapper = ObjectMapper().registerModule(
-        KotlinModule.Builder()
-            .withReflectionCacheSize(COMPILED_CODE)
-            .configure(KotlinFeature.NullToEmptyCollection, COMPILED_CODE)
-            .configure(KotlinFeature.NullToEmptyMap, COMPILED_CODE)
-            .configure(KotlinFeature.NullIsSameAsDefault, COMPILED_CODE)
-            .configure(KotlinFeature.SingletonSupport, COMPILED_CODE)
-            .configure(KotlinFeature.StrictNullChecks, COMPILED_CODE)
-            .build()
-    )
+    private val jsonMapper = ObjectMapper().registerModule(KotlinModule())
 
     /**
      * Parses a JSON file and validates its contents.
