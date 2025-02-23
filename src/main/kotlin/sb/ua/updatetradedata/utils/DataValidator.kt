@@ -43,7 +43,7 @@ class DataValidator<T : Any>(
         val identifier = getIdentifier(bean)
 
         dateFieldName?.let { fieldName ->
-            isValid = isValid and validateDate(bean, fieldName, identifier)
+            isValid = isValid && validateDate(bean, fieldName, identifier)
         }
 
         nameFieldName?.let { fieldName ->
