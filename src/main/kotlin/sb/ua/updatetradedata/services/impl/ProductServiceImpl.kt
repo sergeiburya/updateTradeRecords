@@ -12,8 +12,8 @@ import sb.ua.updatetradedata.utils.XmlFileParser
  * Service for working with products.
  * @author SerhiiBuria
  * This service is responsible for storing products in Redis, getting the product name by its ID
- * and getting a list of all products. It also supports loading products from CSV, XML, JSON files
- * or from a data string.
+ * and getting a list of all products. It also supports loading products from CSV, XML, JSON files.
+ *
  * @property productRepository Repository for working with products in Redis.
  * @property csvFileParser Parser for CSV files.
  * @property xmlFileParser Parser for XML files.
@@ -29,15 +29,13 @@ class ProductServiceImpl(
     /**
      * Stores products from a file or string of data in Redis.
      * @param filePath The path to the file (CSV, XML, or JSON).
-     * @param stringData The string of data if the file is not used.
      * @throws IllegalArgumentException If the file format is not supported or the data is missing.
      */
-    fun saveProductFromFile(filePath: String, stringData: String) {
+    fun saveProductFromFile(filePath: String) {
         val products = when {
             filePath.endsWith(".csv") -> getProductFromCsvFile(filePath)
             filePath.endsWith(".xml") -> getProductFromXmlFile(filePath)
             filePath.endsWith(".json") -> getProductFromJsonFile(filePath)
-            stringData.isNotEmpty() || stringData.isNotBlank() -> getProductFromString(stringData)
             else -> throw IllegalArgumentException("Unsupported file format or missing data")
         }
 
@@ -125,20 +123,5 @@ class ProductServiceImpl(
             }
         )
         return products
-    }
-
-    /**
-     * Gets products from a data string.
-     * @param stringData A data string in CSV, XML, or JSON format.
-     * @return A list of products.
-     */
-    fun getProductFromString(stringData: String): List<Product> {
-        return when {
-            stringData.trimStart().startsWith("{") ||
-                    stringData.trimStart().startsWith("[") -> getProductFromJsonFile(stringData)
-
-            stringData.trimStart().startsWith("<") -> getProductFromXmlFile(stringData)
-            else -> getProductFromCsvFile(stringData)
-        }
     }
 }

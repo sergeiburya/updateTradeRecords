@@ -53,7 +53,7 @@ class TradeDataRecordServiceImplTest {
         val filePath = "unsupported"
 
         assertThrows<IllegalArgumentException> {
-            tradeDataRecordService.updateTradeDataRecords(filePath, "")
+            tradeDataRecordService.updateTradeDataRecords(filePath)
         }
     }
 

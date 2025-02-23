@@ -43,7 +43,7 @@ class ProductServiceImplTest {
         val filePath = "unsupported"
 
         assertThrows<IllegalArgumentException> {
-            productService.saveProductFromFile(filePath, "")
+            productService.saveProductFromFile(filePath)
         }
     }
 

@@ -37,16 +37,9 @@ class ProductController(
     /**
      * Loads products from a file or string.
      * @param filePath Path to the product data file. Default is [DEFAULT_PRODUCTS_FILE_PATH].
-     * @param stringData String of data in JSON, XML, or text format. Used if no file is specified.
      * @return Response with a message that the products were successfully loaded.
      */
-    @PostMapping(
-        "/load",
-        consumes = [
-            MediaType.APPLICATION_JSON_VALUE,
-            MediaType.APPLICATION_XML_VALUE,
-            MediaType.TEXT_PLAIN_VALUE]
-    )
+    @PostMapping("/load")
     @Operation(
         summary = "Load products from file",
         description = "Loads products from a CSV, XML, or JSON file."
@@ -56,10 +49,9 @@ class ProductController(
         @RequestParam(
             required = false,
             defaultValue = DEFAULT_PRODUCTS_FILE_PATH
-        ) filePath: String,
-        @RequestBody(required = false) stringData: String,
+        ) filePath: String
     ): ResponseEntity<String> {
-        productService.saveProductFromFile(filePath, stringData = "")
+        productService.saveProductFromFile(filePath)
 
         return ResponseEntity.ok("Products loaded successfully from $filePath")
     }

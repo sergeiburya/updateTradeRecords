@@ -38,28 +38,20 @@ class TradeDataController(
     /**
      * Updates trade data from a file or data string.
      * @param filePath Path to the trade data file. Default is [DEFAULT_TRADE_DATA_FILES_PATH].
-     * @param stringData String of data in JSON, XML, or text format. Used if no file is specified.
      * @return Response with a list of updated trade data in the format [UpdateTradeDataResponseDto].
      */
-    @PostMapping(
-        "/update", consumes = [
-            MediaType.APPLICATION_JSON_VALUE,
-            MediaType.APPLICATION_XML_VALUE,
-            MediaType.TEXT_PLAIN_VALUE]
-    )
+    @PostMapping("/update")
     @Operation(summary = "Update Trade Data", description = "Updates trade data from a file.")
     @ApiResponse(responseCode = "200", description = "Trade data successfully updated.")
     suspend fun updateTradeData(
         @RequestParam(
             required = false,
             defaultValue = DEFAULT_TRADE_DATA_FILES_PATH
-        ) filePath: String,
-        @RequestBody(required = false) stringData: String,
-    ):
+        ) filePath: String):
             ResponseEntity<List<UpdateTradeDataResponseDto>> {
 
         val updatedTradeData =
-            tradeDataRecordService.updateTradeDataRecords(filePath, stringData = "")
+            tradeDataRecordService.updateTradeDataRecords(filePath)
                 .map { updateTradeDataMapper.mapToDto(it) }
 
         return ResponseEntity.ok(updatedTradeData)

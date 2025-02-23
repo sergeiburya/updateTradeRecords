@@ -12,7 +12,7 @@ import sb.ua.updatetradedata.utils.XmlFileParser
  * Service for updating trade data.
  * @author SerhiiBuria
  * This service is responsible for updating trade data obtained from CSV, XML or JSON files,
- * as well as from a data string. It uses other services for parsing and validating data. *
+ *       It uses other services for parsing and validating data. *
  * @property productService Service for working with products.
  * @property csvFileParser Parser for CSV files.
  * @property xmlFileParser Parser for XML files.
@@ -28,16 +28,14 @@ class TradeDataRecordServiceImpl(
     /**
      * Updates the trade data obtained from a file or data string.
      * @param filePath The path to the file (CSV, XML, or JSON).
-     * @param stringData The data string if a file is not used.
      * @return A list of updated trade data, where each record contains the product name.
      * @throws IllegalArgumentException If the file format is not supported or the data is missing.
      */
-    fun updateTradeDataRecords(filePath: String, stringData: String): List<UpdateTradeDataRecord> {
+    fun updateTradeDataRecords(filePath: String): List<UpdateTradeDataRecord> {
         val tradeDataRecords = when {
             filePath.endsWith(".csv") -> getTradeDataFromCsvFile(filePath)
             filePath.endsWith(".xml") -> getTradeDataFromXmlFile(filePath)
             filePath.endsWith(".json") -> getTradeDataFromJsonFile(filePath)
-            stringData.isNotEmpty() || stringData.isNotBlank() -> getTradeDataFromString(stringData)
             else -> throw IllegalArgumentException("Unsupported file format or missing data")
         }
 
@@ -112,20 +110,5 @@ class TradeDataRecordServiceImpl(
             }
         )
         return trades
-    }
-
-    /**
-     * Gets trade data from a data string.
-     * @param stringData A data string in CSV, XML, or JSON format.
-     * @return A list of trade data.
-     */
-    fun getTradeDataFromString(stringData: String): List<TradeDataRecord> {
-        return when {
-            stringData.trimStart().startsWith("{") ||
-                    stringData.trimStart().startsWith("[") -> getTradeDataFromJsonFile(stringData)
-
-            stringData.trimStart().startsWith("<") -> getTradeDataFromXmlFile(stringData)
-            else -> getTradeDataFromCsvFile(stringData)
-        }
     }
 }
